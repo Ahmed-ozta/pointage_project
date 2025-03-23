@@ -27,39 +27,44 @@ body {
     font-weight: 500;
     margin-bottom: 50px;
 }
-
-
-/* .login input {
-    width: 95%;
-    border-radius: 8px;
-    font-size: 24px;
-    height: 35px;
-    border: 1px solid black;
-} */
 .input_field {
-    width: 95%;
+     width: 95%;
+     border: 1px solid black;
+     display:flex;
+     justify-content: space-between;
+     align-items: center;
     border-radius: 8px;
-    height: 30px;
-    border: 1px solid black;
+    height: 50px;
     padding-left: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom:10px
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    /* margin-bottom:10px */ 
 }
+
 
 .input_field input {
     width: 90%;
     font-size: 24px;
     border: none;
-    position: relative;
-    bottom: 8px;
-    left: 10px;
-}
+    margin-left: 15px;
+ }
 .input_field input:focus{
     outline-width: 0;
-}
+} 
 .input_field input[type="password"]{
-    width: 80%;
+    width: 100%;
+}
+.input_field  button{
+    height: 50px;
+    width: 60px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    margin-right: 5px;
+    /* background-image: url("icons/View.svg"); */
+}
+.input_field  button:hover{
+    cursor: pointer;
 }
 
 

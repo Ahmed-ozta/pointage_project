@@ -19,11 +19,12 @@
             <label for="username">username</label>
             <div class="input_field"><img src="icons\user_icon.svg"><input type="text" name="username" id="username" placeholder="Enter your username"></div>
             <label for="password">password</label>
-            <div class="input_field"><img src="icons\lock_icon.svg"><input type="password" name="password" id="password" placeholder="Enter your password"><button><img src="icons\View.svg"></button></div>
+            <div class="input_field"><img src="icons\lock_icon.svg"><input type="password" name="password" id="password" placeholder="Enter your password"><button type="button" id="button_view"></button></div>
             <input type="submit" name="submit" value="se connecter">
         </form>
         </div>
     </div>
+    <script src="script.js"></script>
     
 </body>
 </html>
