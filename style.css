@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F6F7FC;
+    height: 737px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.login {
+    width: 500px;
+    height: 450px;
+    background-color: white;
+    color: #393737;
+    border-radius: 18px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 65px 20px;
+}
+
+.login_sub_container h1 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+
+/* .login input {
+    width: 95%;
+    border-radius: 8px;
+    font-size: 24px;
+    height: 35px;
+    border: 1px solid black;
+} */
+.input_field {
+    width: 95%;
+    border-radius: 8px;
+    height: 30px;
+    border: 1px solid black;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom:10px
+}
+
+.input_field input {
+    width: 90%;
+    font-size: 24px;
+    border: none;
+    position: relative;
+    bottom: 8px;
+    left: 10px;
+}
+.input_field input:focus{
+    outline-width: 0;
+}
+.input_field input[type="password"]{
+    width: 80%;
+}
+
+
+.login  input[type="submit"] {
+    width: 95%;
+    border-radius: 8px;
+    font-size: 24px;
+    margin-top: 80px;
+    border:  none;
+    background-color: #007AFF;
+    color: white;
+    height: 55px;
+    margin-left: 15px;
+}
+.login  input[type="submit"]:hover{
+    background-color: hsl(211, 100%, 70%);
+    cursor: pointer;
+
+}
