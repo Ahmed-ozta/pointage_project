@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #F6F7FC;
+    background: rgb(246, 247, 252);
+    background: linear-gradient(90deg, rgba(246, 247, 252, 1) 40%, rgba(183, 183, 186, 1) 90%);
     height: 737px;
     width: 100%;
     font-family: 'Roboto', sans-serif;
@@ -17,8 +18,9 @@ body {
     background-color: white;
     color: #393737;
     border-radius: 18px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     padding: 65px 20px;
+
 }
 
 .login_sub_container h1 {
@@ -27,18 +29,21 @@ body {
     font-weight: 500;
     margin-bottom: 50px;
 }
+#input_field{
+    margin-bottom: 10px;
+}
 .input_field {
-     width: 95%;
-     border: 1px solid black;
-     display:flex;
-     justify-content: space-between;
-     align-items: center;
+
+    width: 95%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 8px;
     height: 50px;
     padding-left: 20px;
-    /* padding-top: 10px; */
-    /* padding-bottom: 10px; */
-    /* margin-bottom:10px */ 
+
+
 }
 
 
@@ -47,39 +52,43 @@ body {
     font-size: 24px;
     border: none;
     margin-left: 15px;
- }
-.input_field input:focus{
+}
+
+.input_field input:focus {
     outline-width: 0;
-} 
-.input_field input[type="password"]{
+}
+
+.input_field input[type="password"] {
     width: 100%;
 }
-.input_field  button{
+
+.input_field button {
     height: 50px;
     width: 60px;
     background-color: transparent;
     border: none;
     border-radius: 8px;
     margin-right: 5px;
-    /* background-image: url("icons/View.svg"); */
 }
-.input_field  button:hover{
+
+.input_field button:hover {
     cursor: pointer;
 }
 
 
-.login  input[type="submit"] {
+.login input[type="submit"] {
     width: 95%;
     border-radius: 8px;
     font-size: 24px;
     margin-top: 80px;
-    border:  none;
+    border: none;
     background-color: #007AFF;
     color: white;
     height: 55px;
     margin-left: 15px;
 }
-.login  input[type="submit"]:hover{
+
+.login input[type="submit"]:hover {
     background-color: hsl(211, 100%, 70%);
     cursor: pointer;
 

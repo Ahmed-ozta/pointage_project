@@ -1,7 +1,8 @@
 
-const password = document.getElementById("password")
+const password = document.getElementById("password");
 const button = document.getElementById("button_view");
 button.style.backgroundImage = "url('icons/View.svg')";
+// function that show and hide the password each time you click on the button
 button.addEventListener("click", () => {
     if (password.getAttribute("type") == "password") {
         password.setAttribute("type", "text");
