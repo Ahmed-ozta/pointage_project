@@ -1,95 +1,16 @@
 body {
     margin: 0;
-    padding: 0;
-    background: rgb(246, 247, 252);
-    background: linear-gradient(90deg, rgba(246, 247, 252, 1) 40%, rgba(183, 183, 186, 1) 90%);
-    height: 737px;
-    width: 100%;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
 }
 
-.login {
-    width: 500px;
-    height: 450px;
-    background-color: white;
-    color: #393737;
-    border-radius: 18px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    padding: 65px 20px;
-
+.loginContainer {
+    height: 585px;
+    background-color: aqua;
+    width: 511px;
+    margin: auto;
 }
 
-.login_sub_container h1 {
-    text-align: center;
-    font-size: 40px;
-    font-weight: 500;
-    margin-bottom: 50px;
-}
-#input_field{
-    margin-bottom: 10px;
-}
-.input_field {
-
-    width: 95%;
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    height: 50px;
-    padding-left: 20px;
-
-
-}
-
-
-.input_field input {
-    width: 90%;
-    font-size: 24px;
-    border: none;
-    margin-left: 15px;
-}
-
-.input_field input:focus {
-    outline-width: 0;
-}
-
-.input_field input[type="password"] {
-    width: 100%;
-}
-
-.input_field button {
-    height: 50px;
-    width: 60px;
-    background-color: transparent;
-    border: none;
-    border-radius: 8px;
-    margin-right: 5px;
-}
-
-.input_field button:hover {
-    cursor: pointer;
-}
-
-
-.login input[type="submit"] {
-    width: 95%;
-    border-radius: 8px;
-    font-size: 24px;
-    margin-top: 80px;
-    border: none;
-    background-color: #007AFF;
-    color: white;
-    height: 55px;
-    margin-left: 15px;
-}
-
-.login input[type="submit"]:hover {
-    background-color: hsl(211, 100%, 70%);
-    cursor: pointer;
+.loginContainer h1 {
+    color: #1570EF;
+   
 
 }
