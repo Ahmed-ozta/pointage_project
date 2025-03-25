@@ -115,18 +115,29 @@
 <?php
        $employees=[];
     if(isset($_GET["selectSubmit"])){
-      $employees=[];
-        $sql="SELECT e.id,e.full_name,e.phone   from affectations a join employee e  on a.id_empl=e.id  WHERE id_projet=".$_GET['projet'];//
-        $result=mysqli_query($conn,$sql);
-        while($row=mysqli_fetch_assoc($result)){
-          array_push($employees, array("id"=>$row['id'],"full_name" => $row['full_name'], "phone" => $row['phone']));
-        }
         $sql_projectName="SELECT pr_name,last_update from projet where id=".$_GET['projet'];
         $result_name=mysqli_query($conn,$sql_projectName);
         $row_name=mysqli_fetch_assoc($result_name);
         $case= $row_name['last_update']==$_SESSION['date']?false:true;
-        
-        echo "<script>table_employees(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "',$case);</script>";
+        if($case){
+            $sql="SELECT e.id,e.full_name,e.phone   from affectations a join employee e  on a.id_empl=e.id  WHERE id_projet=".$_GET['projet'];//
+            $result=mysqli_query($conn,$sql);
+            while($row=mysqli_fetch_assoc($result)){
+              array_push($employees, array("id"=>$row['id'],"full_name" => $row['full_name'], "phone" => $row['phone']));
+            }
+           
+            
+            echo "<script>table_employees(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "',$case);</script>";
+        }else{
+            $sql="SELECT e.full_name,e.phone,h.présence from historique h JOIN employee e on h.id_empl=e.id  WHERE id_projet=".$_GET['projet'];
+            $result=mysqli_query($conn,$sql);
+            while($row=mysqli_fetch_assoc($result)){
+                array_push($employees, array("full_name"=>$row['full_name'],"phone" => $row['phone'], "présence" => $row['présence']));
+              }
+              echo "<script>table_historique(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "');</script>";
+        }
+      $employees=[];
+       
     }
 
 

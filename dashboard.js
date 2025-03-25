@@ -57,7 +57,7 @@ function table_employees(array, pr_name, case_update) {
                 <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
                 <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
                 <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
-                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Status</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">présence</th>
             </tr>
         </thead>
         <tbody class="bg-white" id="my_tbody"></tbody>
@@ -87,5 +87,44 @@ function table_employees(array, pr_name, case_update) {
     `;
     if (!case_update) {
         submit_button.style.display = "none";
+    }
+}
+
+function table_historique(array, pr_name) {
+
+    h2.innerHTML = "Projet: " + pr_name;
+    document.getElementById("input_projet_name").value = pr_name
+    // Set up the table structure
+    div.innerHTML = `
+    <table class="w-full table-fixed">
+        <thead>
+            <tr class="bg-gray-300">
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
+                <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">présence</th>
+            </tr>
+        </thead>
+        <tbody class="bg-white" id="my_tbody"></tbody>
+    </table>`;
+
+    // Get the tbody element
+    let tbody = document.getElementById("my_tbody");
+
+    // Loop through the array and add each employee's data as a row
+    for (let empl of array) {
+        let row = document.createElement('tr');
+        row.classList.add('border-b', 'border-gray-200');
+
+        row.innerHTML = `
+            <td class="py-4 px-6">${empl.full_name}</td>
+            <td class="py-4 px-6">${empl.phone}</td>
+            <td class="py-4 px-6">example@example.com</td>  <!-- Example email, change as needed -->
+            <td class="py-4 px-6">
+                ${empl.présence}
+            </td>
+        `;
+
+        tbody.appendChild(row);
     }
 }
