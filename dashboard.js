@@ -44,8 +44,10 @@ table_employees([{"full_name":"nagato","phone":"666666"},{"full_name":"naruto","
 </div>
 */
 const div = document.getElementById("table_employee");
+const h2 = document.getElementById("projet_name");
 
-function table_employees(array) {
+function table_employees(array, pr_name) {
+    h2.innerHTML = pr_name;
     // Set up the table structure
     div.innerHTML = `
     <form action='save.php method=get'>

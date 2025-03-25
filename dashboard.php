@@ -89,6 +89,7 @@
                     
                       
                   </div>
+                  <h2 id="projet_name"></h2>
                   <table>
                   <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10" id="table_employee"></div>
                   </table>
@@ -110,7 +111,10 @@
         $result=mysqli_query($conn,$sql);
         while($row=mysqli_fetch_assoc($result)){
           array_push($employees, array("full_name" => $row['full_name'], "phone" => $row['phone']));
-            // echo $row["full_name"]." ".$row["phone"]."<br>";
         }
-          echo "<script>table_employees(" . json_encode($employees) . ")</script>";
+        $sql_projectName="SELECT pr_name from projet where id=".$_GET['projet'];
+        $result_name=mysqli_query($conn,$sql_projectName);
+        $row_name=mysqli_fetch_assoc($result_name);
+        
+        echo "<script>table_employees(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "');</script>";
     }
