@@ -1,152 +1,116 @@
+<?php
+  include("database.php");
+  session_start();
+  $sql_getProject="select * from projet";
+  $result_projet=mysqli_query($conn,$sql_getProject);
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Dashboard</title>
 </head>
-<body>
-<div class="flex h-screen bg-gray-100">
+<body class="bg-gray-100">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gray-900 text-white">
+            <div class="p-4 border-b border-gray-800">
+                <div class="flex items-center justify-between">
+                    <span class="text-xl font-bold">Admin </span>
+                </div>
+            </div>
 
-<!-- sidebar -->
-<div class="hidden md:flex flex-col w-64 bg-indigo-600 ">
-    <div class="flex items-center justify-center h-16 bg-indigo-800">
-        <span class="text-white font-bold uppercase">Daystar Dashboard</span>
-    </div>
-    <div class="flex flex-col flex-1 overflow-y-auto">
-        <nav class="flex-1 px-2 py-4 bg-indigo-600">
-            <a href="#" class="flex items-center px-4 py-2 text-gray-100 hover:bg-indigo-500">
-                <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M18 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0ZM3 19.235v-.11a6.375 6.375 0 0 1 12.75 0v.109A12.318 12.318 0 0 1 9.374 21c-2.331 0-4.512-.645-6.374-1.766Z"
-            />
-          </svg>
-                Baby Sitters
-            </a>
-            <a href="#" class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-indigo-500">
-                <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
-            />
-          </svg>
-                Babies
-            </a>
-            <a
-          href="#"
-          class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-indigo-500"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605"
-            />
-          </svg>
-
-          Procurement
-        </a>
-
-        <a
-          href="#"
-          class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-indigo-500"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z"
-            />
-          </svg>
-
-          Transactions
-        </a>
-
-        <a
-          href="#"
-          class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 mr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M13 10V3L4 14h7v7l9-11h-7z"
-            />
-          </svg>
-          Settings
-        </a>
+            <!-- Search Bar -->
             
-            
-        </nav>
-    </div>
-</div>
 
-<!-- Main content -->
-<div class="flex flex-col flex-1 overflow-y-auto">
-    <div class="flex items-center justify-between h-16 bg-white border-b border-gray-200">
-        <div class="flex items-center px-4">
-            <button class="text-gray-500 focus:outline-none focus:text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-            <input class="mx-4 w-full border rounded-md px-4 py-2" type="text" placeholder="Search">
-        </div>
-        <div class="flex items-center pr-4">
+            <nav class="mt-5 px-2">
+                <!-- Main Navigation -->
+                <div class="space-y-4">
+                    <!-- Dashboard -->
+                    <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg bg-gray-800 text-white group transition-all duration-200 hover:bg-gray-700">
+                        <svg class="h-5 w-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Dashboard
+                    </a>
 
-            <button
-                class="flex items-center text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 19l-7-7 7-7m5 14l7-7-7-7" />
-                </svg>
-            </button>
-        </div>
-    </div>
-    <div class="p-4">
-        <h1 class="text-2xl font-bold">Welcome to Daystar Daycare </h1>
-        <p class="mt-2 text-gray-600">Raising tomorrow's leaders.</p>
-    </div>
-</div>
+                    <!-- Analytics Dropdown -->
+                   
 
-</div>
+                    <!-- Projects -->
+                    <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white group transition-all duration-200">
+                        <svg class="h-5 w-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+                        </svg>
+                        Projects
+                    </a>
+
+                    <!-- Calendar -->
+                   
+
+                    <!-- Documents -->
+                    
+                </div>
+            </nav>
+
+            <!-- User Profile -->
+            <div class="mt-auto p-4 border-t border-gray-800">
+                <div class="flex items-center">
+                    <img class="h-8 w-8 rounded-full" src="icons\user_icon.svg" alt="">
+                    <div class="ml-3">
+                        <p class="text-sm font-medium text-white"><?php echo $_SESSION["name"];?></p>
+                        <!-- <p class="text-xs text-gray-400">View profile</p> -->
+                    </div>
+                </div>
+               
+            </div>
+            <a class="ml-4 mt-4  bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 cursor-pointer " href="logout.php" >Logout</a>
+        </aside>
+
+        <!-- Main Content -->
+                  <div  class="flex-1 p-6 bg-gray-100">
+                  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+                  <div>
+                    <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="get"> 
+                    <h3>Veuillez sélectionner un projet.</h3>
+                    <select name="projet">
+                      <?php
+                      
+                      while($row = mysqli_fetch_assoc($result_projet)){
+                        echo "<option value='" . $row['id'] . "'>" . $row['pr_name'] . "</option>";
+                    }
+                      ?>
+                    </select>
+                    <input type="submit" name="selectSubmit" value="Envoyer" class="">
+                    </form>
+                    
+                      
+                  </div>
+                  <table>
+                  <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10" id="table_employee"></div>
+                  </table>
+                  
+                  </div>
+                 
+
+        
+        </main>
+    </div>
+    <script src="dashboard.js"></script>
 </body>
 </html>
+<?php
+       $employees=[];
+    if(isset($_GET["selectSubmit"])){
+      $employees=[];
+        $sql="SELECT full_name,phone   from affectations  join employee  on affectations.id_empl=employee.id  WHERE id_projet=".$_GET['projet'];//
+        $result=mysqli_query($conn,$sql);
+        while($row=mysqli_fetch_assoc($result)){
+          array_push($employees, array("full_name" => $row['full_name'], "phone" => $row['phone']));
+            // echo $row["full_name"]." ".$row["phone"]."<br>";
+        }
+          echo "<script>table_employees(" . json_encode($employees) . ")</script>";
+    }

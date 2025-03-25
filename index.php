@@ -84,6 +84,8 @@
                 if($name==$row["name"]){
                     $incorrect_name=false;
                     if($password==$row["password"]){
+                        session_start();
+                        $_SESSION["name"]=$name;
                         header("location: dashboard.php");
                     }else{
                         echo "<script>incorrectPassword()</script>";
