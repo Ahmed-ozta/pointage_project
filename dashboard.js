@@ -48,6 +48,7 @@ const h2 = document.getElementById("projet_name");
 const submit_button = document.getElementById("submit_button");
 function table_employees(array, pr_name, case_update) {
     h2.innerHTML = "Projet: " + pr_name;
+    document.getElementById("input_projet_name").value = pr_name
     // Set up the table structure
     div.innerHTML = `
     <table class="w-full table-fixed">
@@ -75,7 +76,7 @@ function table_employees(array, pr_name, case_update) {
             <td class="py-4 px-6">${empl.phone}</td>
             <td class="py-4 px-6">example@example.com</td>  <!-- Example email, change as needed -->
             <td class="py-4 px-6">
-                <input type="checkbox" >Present
+                <input type="checkbox" name="${empl.id}">Present
             </td>
         `;
 
@@ -85,6 +86,6 @@ function table_employees(array, pr_name, case_update) {
      <input type="submit" class="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" name="save" value="save" >
     `;
     if (!case_update) {
-        submit_button.style.display = "none"
+        submit_button.style.display = "none";
     }
 }

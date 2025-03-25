@@ -99,8 +99,9 @@
                   <form action="save.php" method="get">
                   <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10" id="table_employee"></div>
                   <div id="submit_button"></div>
+                  <input name="name_projet" id="input_projet_name" style="display: none;">
                   </form>
-                 
+                  
                   
                   </div>
                  
@@ -115,10 +116,10 @@
        $employees=[];
     if(isset($_GET["selectSubmit"])){
       $employees=[];
-        $sql="SELECT full_name,phone   from affectations  join employee  on affectations.id_empl=employee.id  WHERE id_projet=".$_GET['projet'];//
+        $sql="SELECT e.id,e.full_name,e.phone   from affectations a join employee e  on a.id_empl=e.id  WHERE id_projet=".$_GET['projet'];//
         $result=mysqli_query($conn,$sql);
         while($row=mysqli_fetch_assoc($result)){
-          array_push($employees, array("full_name" => $row['full_name'], "phone" => $row['phone']));
+          array_push($employees, array("id"=>$row['id'],"full_name" => $row['full_name'], "phone" => $row['phone']));
         }
         $sql_projectName="SELECT pr_name,last_update from projet where id=".$_GET['projet'];
         $result_name=mysqli_query($conn,$sql_projectName);
@@ -129,6 +130,4 @@
     }
 
 
-    // add a colomn data
-    // if(datae===today )=>dislay none;
-     
+ 
