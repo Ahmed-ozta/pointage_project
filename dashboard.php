@@ -75,24 +75,32 @@
                   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
                   <div>
                     <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="get"> 
-                    <h3>Veuillez sélectionner un projet.</h3>
-                    <select name="projet">
+                    <h3 class="text-xl mb-5 text-gray-700">Veuillez sélectionner un projet :</h3>
+                    <div class="inline-block relative w-64 ">
+                    <select name="projet" class="hover:cursor-pointer block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                       <?php
                       
                       while($row = mysqli_fetch_assoc($result_projet)){
                         echo "<option value='" . $row['id'] . "'>" . $row['pr_name'] . "</option>";
                     }
                       ?>
+                      
                     </select>
-                    <input type="submit" name="selectSubmit" value="Envoyer" class="">
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                                      </div>
+                    <input type="submit" name="selectSubmit" value="Envoyer" class="bg-blue-500 hover:bg-blue-700 cursor-pointer text-white font-bold py-2 px-4 rounded">
                     </form>
                     
                       
                   </div>
-                  <h2 id="projet_name"></h2>
-                  <table>
+                  <h2 id="projet_name" class="my-5 text-2xl font-medium text-gray-700"></h2>
+                  <form action="save.php" method="get">
                   <div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10" id="table_employee"></div>
-                  </table>
+                  <div id="submit_button"></div>
+                  </form>
+                 
                   
                   </div>
                  
@@ -112,9 +120,15 @@
         while($row=mysqli_fetch_assoc($result)){
           array_push($employees, array("full_name" => $row['full_name'], "phone" => $row['phone']));
         }
-        $sql_projectName="SELECT pr_name from projet where id=".$_GET['projet'];
+        $sql_projectName="SELECT pr_name,last_update from projet where id=".$_GET['projet'];
         $result_name=mysqli_query($conn,$sql_projectName);
         $row_name=mysqli_fetch_assoc($result_name);
+        $case= $row_name['last_update']==$_SESSION['date']?false:true;
         
-        echo "<script>table_employees(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "');</script>";
+        echo "<script>table_employees(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "',$case);</script>";
     }
+
+
+    // add a colomn data
+    // if(datae===today )=>dislay none;
+     

@@ -86,6 +86,7 @@
                     if($password==$row["password"]){
                         session_start();
                         $_SESSION["name"]=$name;
+                        $_SESSION["date"] = date('Y-m-d'); 
                         header("location: dashboard.php");
                     }else{
                         echo "<script>incorrectPassword()</script>";

@@ -45,15 +45,14 @@ table_employees([{"full_name":"nagato","phone":"666666"},{"full_name":"naruto","
 */
 const div = document.getElementById("table_employee");
 const h2 = document.getElementById("projet_name");
-
-function table_employees(array, pr_name) {
-    h2.innerHTML = pr_name;
+const submit_button = document.getElementById("submit_button");
+function table_employees(array, pr_name, case_update) {
+    h2.innerHTML = "Projet: " + pr_name;
     // Set up the table structure
     div.innerHTML = `
-    <form action='save.php method=get'>
     <table class="w-full table-fixed">
         <thead>
-            <tr class="bg-gray-100">
+            <tr class="bg-gray-300">
                 <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
                 <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Phone</th>
                 <th class="w-1/4 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
@@ -61,8 +60,7 @@ function table_employees(array, pr_name) {
             </tr>
         </thead>
         <tbody class="bg-white" id="my_tbody"></tbody>
-    </table>
-    `;
+    </table>`;
 
     // Get the tbody element
     let tbody = document.getElementById("my_tbody");
@@ -77,10 +75,16 @@ function table_employees(array, pr_name) {
             <td class="py-4 px-6">${empl.phone}</td>
             <td class="py-4 px-6">example@example.com</td>  <!-- Example email, change as needed -->
             <td class="py-4 px-6">
-                <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
+                <input type="checkbox" >Present
             </td>
         `;
 
         tbody.appendChild(row);
+    }
+    submit_button.innerHTML = `
+     <input type="submit" class="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" name="save" value="save" >
+    `;
+    if (!case_update) {
+        submit_button.style.display = "none"
     }
 }
