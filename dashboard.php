@@ -129,10 +129,10 @@
             
             echo "<script>table_employees(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "',$case);</script>";
         }else{
-            $sql="SELECT e.full_name,e.phone,h.présence from historique h JOIN employee e on h.id_empl=e.id  WHERE id_projet=".$_GET['projet'];
+            $sql="SELECT e.full_name,e.phone,h.présence,h.date_historique from historique h JOIN employee e on h.id_empl=e.id  WHERE id_projet=".$_GET['projet'];
             $result=mysqli_query($conn,$sql);
             while($row=mysqli_fetch_assoc($result)){
-                array_push($employees, array("full_name"=>$row['full_name'],"phone" => $row['phone'], "présence" => $row['présence']));
+                array_push($employees, array("full_name"=>$row['full_name'],"phone" => $row['phone'], "présence" => $row['présence'],"date_historique" => $row['date_historique']));
               }
               echo "<script>table_historique(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "');</script>";
         }

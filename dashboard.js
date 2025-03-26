@@ -92,7 +92,7 @@ function table_employees(array, pr_name, case_update) {
 
 function table_historique(array, pr_name) {
 
-    h2.innerHTML = "Projet: " + pr_name;
+    h2.innerHTML = "Projet: " + pr_name + " Date: " + array[0].date_historique;
     document.getElementById("input_projet_name").value = pr_name
     // Set up the table structure
     div.innerHTML = `
