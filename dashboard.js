@@ -1,54 +1,9 @@
-/*
-table_employees([{"full_name":"nagato","phone":"666666"},{"full_name":"naruto","phone":"1111111"},{"full_name":"courtois","phone":"1331"},{"full_name":"luffy","phone":"22222"}])
- */
-/*
-<div class="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10">
-    <table class="w-full table-fixed">
-       
-        <tbody class="bg-white">
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">John Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">johndoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-green-500 text-white py-1 px-2 rounded-full text-xs">Active</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <tr>
-                <td class="py-4 px-6 border-b border-gray-200">Jane Doe</td>
-                <td class="py-4 px-6 border-b border-gray-200 truncate">janedoe@gmail.com</td>
-                <td class="py-4 px-6 border-b border-gray-200">555-555-5555</td>
-                <td class="py-4 px-6 border-b border-gray-200">
-                    <span class="bg-red-500 text-white py-1 px-2 rounded-full text-xs">Inactive</span>
-                </td>
-            </tr>
-            <!-- Add more rows here -->
-        </tbody>
-    </table>
-</div>
-*/
 const div = document.getElementById("table_employee");
 const h2 = document.getElementById("projet_name");
 const submit_button = document.getElementById("submit_button");
 function table_employees(array, pr_name, case_update) {
     h2.innerHTML = "Projet: " + pr_name;
-    document.getElementById("input_projet_name").value = pr_name
+    document.getElementById("input_projet_name").value = pr_name;
     // Set up the table structure
     div.innerHTML = `
     <table class="w-full table-fixed">
@@ -76,7 +31,7 @@ function table_employees(array, pr_name, case_update) {
             <td class="py-4 px-6">${empl.phone}</td>
             <td class="py-4 px-6">example@example.com</td>  <!-- Example email, change as needed -->
             <td class="py-4 px-6">
-                <input type="checkbox" name="${empl.id}">Present
+                <input type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" name="${empl.id}">Present
             </td>
         `;
 
