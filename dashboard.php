@@ -36,33 +36,14 @@
                         </svg>
                         Dashboard
                     </a>
-
-                    <!-- Analytics Dropdown -->
-                   
-
-                    <!-- Projects -->
-                    <a href="#" class="flex items-center px-4 py-2.5 text-sm font-medium rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white group transition-all duration-200">
-                        <svg class="h-5 w-5 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                        </svg>
-                        Projects
-                    </a>
-
-                    <!-- Calendar -->
-                   
-
-                    <!-- Documents -->
                     
                 </div>
             </nav>
-
-            <!-- User Profile -->
             <div class="mt-auto p-4 border-t border-gray-800">
                 <div class="flex items-center">
                     <img class="h-8 w-8 rounded-full" src="icons\user_icon.svg" alt="">
                     <div class="ml-3">
                         <p class="text-sm font-medium text-white"><?php echo $_SESSION["name"];?></p>
-                        <!-- <p class="text-xs text-gray-400">View profile</p> -->
                     </div>
                 </div>
                
@@ -70,7 +51,6 @@
             <a class="ml-4 mt-4  bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 cursor-pointer " href="logout.php" >Logout</a>
         </aside>
 
-        <!-- Main Content -->
                   <div  class="flex-1 p-6 bg-gray-100">
                   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
                   <div>
@@ -132,8 +112,9 @@
             $sql="SELECT e.full_name,e.phone,h.présence,h.date_historique from historique h JOIN employee e on h.id_empl=e.id  WHERE id_projet=".$_GET['projet'];
             $result=mysqli_query($conn,$sql);
             while($row=mysqli_fetch_assoc($result)){
+                if($_SESSION['date']==$row['date_historique']){
                 array_push($employees, array("full_name"=>$row['full_name'],"phone" => $row['phone'], "présence" => $row['présence'],"date_historique" => $row['date_historique']));
-              }
+                }}
               echo "<script>table_historique(" . json_encode($employees) . ", '" . addslashes($row_name['pr_name']) . "');</script>";
         }
       $employees=[];
