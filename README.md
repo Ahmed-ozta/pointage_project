@@ -17,8 +17,4 @@ Une application simple et efficace pour permettre à un chef d’équipe de gér
 - Tailwind CSS (Design responsive)
 - XAMPP (Serveur local pour le développement)
 
-## 🚀 Installation
 
-1. Cloner le projet :
-   ```bash
-   git clone https://github.com/ton-utilisateur/nom-du-repo.git
